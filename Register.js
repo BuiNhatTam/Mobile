@@ -7,14 +7,14 @@ import {
   StyleSheet,
   Button,
 } from 'react-native';
-import DateTimePicker from '@react-native-community/datetimepicker';
+
 
 const Register= () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [birthday, setBirthday] = useState(new Date());
+  const [birthday, setBirthday] = useState('');
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [gender, setGender] = useState(null);
   const [secureTextEntry, setSecureTextEntry] = useState(true);
@@ -60,30 +60,18 @@ const Register= () => {
           secureTextEntry={secureTextEntry}
         />
         <TouchableOpacity onPress={() => setSecureTextEntry(!secureTextEntry)}>
-          <Text style={styles.eyeIcon}>{secureTextEntry ? '👁️' : '🙈'}</Text>
+        <Image source={require('./assets/lock-152879 1.png')} style={styles.icon} />
         </TouchableOpacity>
       </View>
-
-      <TouchableOpacity
+      
+      <TextInput
         style={styles.input}
-        onPress={() => setShowDatePicker(true)}
-      >
-        <Text>{birthday ? birthday.toDateString() : 'Birthday'}</Text>
-      </TouchableOpacity>
+        placeholder="BirthDay"
+        value={birthday}
+        onChangeText={setBirthday}
+        
+      />
 
-      {showDatePicker && (
-        <DateTimePicker
-          value={birthday}
-          mode="date"
-          display="default"
-          onChange={(event, selectedDate) => {
-            setShowDatePicker(false);
-            if (selectedDate) {
-              setBirthday(selectedDate);
-            }
-          }}
-        />
-      )}
 
       <View style={styles.genderContainer}>
         <TouchableOpacity
@@ -145,6 +133,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E0E0E0',
     borderRadius: 5,
     paddingHorizontal: 10,
+    marginBottom: 20,
   },
   passwordInput: {
     flex: 1,

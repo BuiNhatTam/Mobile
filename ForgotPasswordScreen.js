@@ -16,7 +16,7 @@ export default function ForgotPasswordScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.lockIcon}>🔒</Text>
+       <Image source={require('./assets/lock-152879 1.png')} style={styles.icon} />
       <Text style={styles.title}>FORGET PASSWORD</Text>
       <Text style={styles.description}>Provide your account's email for which you want to reset your password</Text>
       <TextInput
