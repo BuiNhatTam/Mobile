@@ -24,7 +24,8 @@ const HomeScreen = ({ navigation }) => {
     </View>
   );
 };
-
+///aaaaa
+////ấkfhsakfhskfhsakjfhsajk
 export default function App() {
   return (
     <NavigationContainer>
